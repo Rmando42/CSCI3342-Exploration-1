@@ -33,15 +33,17 @@ public class SortingAlgorithms {
 
 	// Insertion Sort
 	public static void insertion(int[] arr) {
-		for (int i = 1; i < arr.length - 1; i++) {
-			for (int j = 0; j < arr.length - 1; j++) {
-				int key = arr[i]
-				if (key < arr[i-1]) {
-					int temp = arr[i-1];
-					arr[i-1] = key;
-					key = temp;
-				}
+		for (int i = 1; i < arr.length; i++) {
+			int eleSort = 1;
+			int keySort = 0;
+			while ((i-eleSort) >= 0 && arr[i-keySort] < arr[i-eleSort]) {
+				int temp = arr[i-keySort];
+				arr[i-keySort] = arr[i-eleSort];
+				arr[i-eleSort] = temp;
+				eleSort++;
+				keySort++;
 			}
+			eleSort = 1;
 		}
 	}
 }
