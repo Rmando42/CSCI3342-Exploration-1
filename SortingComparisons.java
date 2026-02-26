@@ -3,6 +3,9 @@ public class SortingComparisons{
 		int[] test = {64, 34, 25, 12, 22, 11, 90};
 		SortingAlgorithms.bubble(test);
 
+		int[] test2 = {64, 34, 25, 12, 22, 11, 90};
+		SortingAlgorithms.insertion(test2)
+
 		for (int num : test) {
 			System.out.print(num + " ");
 		}

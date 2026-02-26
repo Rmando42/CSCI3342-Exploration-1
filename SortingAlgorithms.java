@@ -1,4 +1,5 @@
-//Armando Calzadilla 
+// Armando Calzadilla 
+// Steven Grundberg
 
 
 public class SortingAlgorithms {
@@ -30,4 +31,17 @@ public class SortingAlgorithms {
 	public static void quick(int[] arr){
 	}
 
+	// Insertion Sort
+	public static void insertion(int[] arr) {
+		for (int i = 1; i < arr.length - 1; i++) {
+			for (int j = 0; j < arr.length - 1; j++) {
+				int key = arr[i]
+				if (key < arr[i-1]) {
+					int temp = arr[i-1];
+					arr[i-1] = key;
+					key = temp;
+				}
+			}
+		}
+	}
 }
