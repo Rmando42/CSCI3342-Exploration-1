@@ -29,10 +29,44 @@ public class SortingAlgorithms {
 
 	// Quick Sort
 	public static void quick(int[] arr){
+        quickHelper(arr, 0, arr.length - 1);
 	}
+
+    // Helper method
+    public static void quickHelper(int[] arr, int low, int high){
+        if (low < high){
+            int pivotIndex = partition(arr, low, high);
+
+            quickHelper(arr, low, pivotIndex - 1);
+            quickHelper(arr, pivotIndex + 1, high);
+        }
+    }
+
+    // Partition method
+    public static int partition(int[] arr, int low, int high){
+        int pivot = arr[high];
+        int i = low - 1;
+
+        for (int j = low; j < high; j++){
+            if (arr[j] <= pivot){
+                i++;
+
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+
+        int temp = arr[i + 1];
+        arr[i + 1] = arr[high];
+        arr[high] = temp;
+
+        return i + 1;
+    }
 
 	// Insertion Sort
 	public static void insertion(int[] arr) {
+<<<<<<< HEAD
 		for (int i = 1; i < arr.length; i++) {
 			int eleSort = 1;
 			int keySort = 0;
@@ -42,6 +76,16 @@ public class SortingAlgorithms {
 				arr[i-eleSort] = temp;
 				eleSort++;
 				keySort++;
+=======
+		for (int i = 1; i < arr.length - 1; i++) {
+			for (int j = 0; j < arr.length - 1; j++) {
+				int key = arr[i];
+				if (key < arr[i-1]) {
+					int temp = arr[i-1];
+					arr[i-1] = key;
+					key = temp;
+				}
+>>>>>>> 264c52e7b086c6b0d9761bb8dfb1c348f5579d16
 			}
 			eleSort = 1;
 		}
