@@ -33,7 +33,7 @@ public class SortingAlgorithms {
 	}
 
     // Helper method
-    public static void quickHelper(int[] arr, int low, int high){
+    private  static void quickHelper(int[] arr, int low, int high){
         if (low < high){
             int pivotIndex = partition(arr, low, high);
 
@@ -43,7 +43,7 @@ public class SortingAlgorithms {
     }
 
     // Partition method
-    public static int partition(int[] arr, int low, int high){
+    private static int partition(int[] arr, int low, int high){
         int pivot = arr[high];
         int i = low - 1;
 
