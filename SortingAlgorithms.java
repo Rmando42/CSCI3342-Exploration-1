@@ -79,4 +79,60 @@ public class SortingAlgorithms {
 			eleSort = 1;
 		}
 	}
+
+		// Selection Sort
+	public static void selection(int[] arr) {
+		for (int i = 0; i < arr.length - 1; i++) {
+			int minIndex = i;
+			for (int j = i + 1; j < arr.length; j++) {
+				if (arr[j] < arr[minIndex]) {
+					minIndex = j;	
+				}
+			}
+			int temp = arr[minIndex];
+			arr[minIndex] = arr[i];
+			arr[i] = temp;
+		}
+	}
+
+
+	// Merge Sort
+	public static void merge(int[] arr) {
+		if (arr.length < 2) {
+			return;
+		}
+		int mid = arr.length / 2;
+		int[] left = new int[mid];
+		int[] right = new int[arr.length - mid];
+		for (int i = 0; i < mid; i++) {
+			left[i] = arr[i];
+		}
+		for (int i = mid; i < arr.length; i++) {
+			right[i - mid] = arr[i];
+		}
+		merge(left);
+		merge(right);
+		mergeArrays(arr, left, right);
+	}
+
+	// Helper method for merge sort
+	private static void mergeArrays(int[] arr, int[] left, int[] right) {
+		int i = 0, j = 0, k = 0;
+		// Merge the two arrays
+		while (i < left.length && j < right.length) {
+			if (left[i] < right[j]) {
+				arr[k++] = left[i++];
+			} else {
+				arr[k++] = right[j++];
+			}
+		}
+		// Copy the remaining elements of left[], if there are any
+		while (i < left.length) {
+			arr[k++] = left[i++];
+		}
+		// Copy the remaining elements of right[], if there are any
+		while (j < right.length) {
+			arr[k++] = right[j++];
+		}
+	}
 }
